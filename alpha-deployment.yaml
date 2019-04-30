@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: alpha
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: alpha
+    spec:
+      containers:
+      - name: alpha-leo
+        image: leodotcloud/swiss-army-knife
+        env:
+        - name: ALPHABET
+          value: a
+        - name: PORT
+          value: "9001"
+        ports:
+        - containerPort: 9001

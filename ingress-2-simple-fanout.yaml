@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: simple-fanout
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /alpha
+        backend:
+          serviceName: alpha
+          servicePort: 91
+      - path: /bravo
+        backend:
+          serviceName: bravo
+          servicePort: 92

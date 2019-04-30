@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tls
+spec:
+  rules:
+  - host: alpha.apps.mydomain.com
+    http:
+      paths:
+      - backend:
+          serviceName: alpha
+          servicePort: 91
+  tls:
+  - hosts:
+    - alpha.apps.mydomain.com
+    secretName: certificate-name

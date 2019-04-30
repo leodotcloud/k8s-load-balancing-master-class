@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: bravo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bravo
+    spec:
+      containers:
+      - name: bravo-leo
+        image: leodotcloud/swiss-army-knife
+        env:
+        - name: ALPHABET
+          value: b
+        - name: PORT
+          value: "9002"
+        ports:
+        - containerPort: 9002

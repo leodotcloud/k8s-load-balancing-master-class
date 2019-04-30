@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: charlie
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: charlie
+    spec:
+      containers:
+      - name: charlie-leo
+        image: leodotcloud/swiss-army-knife
+        env:
+        - name: ALPHABET
+          value: c
+        - name: PORT
+          value: "9003"
+        ports:
+        - containerPort: 9003

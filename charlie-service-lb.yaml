@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: charlie
+  labels:
+    app: charlie
+spec:
+  type: LoadBalancer
+  ports:
+  - name: charlieport
+    port: 93
+    targetPort: 9003
+  selector:
+    app: charlie
